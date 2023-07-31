@@ -22,4 +22,11 @@ public class ProductEndpoint {
         final Product savedProduct = productRepository.save(newProduct);
         return ResponseEntity.ofNullable(savedProduct);
     }
+
+    @GetMapping("/{productId}")
+    public ResponseEntity<Product> findProduct(@PathVariable("productId") Long productId){
+        return productRepository.findById(productId)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }

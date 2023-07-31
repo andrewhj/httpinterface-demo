@@ -13,4 +13,12 @@ public class ProductService {
     public List<Product> fetchAllProducts() {
         return productDao.fetchAllProducts();
     }
+
+    public Product createProduct(Product newProduct) {
+        return productDao.create(newProduct);
+    }
+
+    public Product fetchProductDetail(Long productId) {
+        return productDao.fetchDetail(productId);
+    }
 }
